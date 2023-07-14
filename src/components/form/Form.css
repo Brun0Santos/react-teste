@@ -4,34 +4,82 @@
     box-sizing: border-box;
 }
 
-body {
-    width: 100%;
-    height: 100vh;
-}
-
+/* Estilos para o formulário */
 .app {
     display: flex;
-    text-align: center;
-}
-
-input {
-    width: 200px;
-    height: 40px;
-}
-
-.coluna {
-    padding: 70px 3% 20px;
-    
-}
-
-.flex {
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Estilos para o formulário */
+  .formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para cada campo do formulário */
+  .campo {
+    flex: 0 0 48%;
+    margin-bottom: 10px;
+    display: flex;
     flex-direction: column;
-}
-
-
-button{
+  }
+  
+  /* Estilos para rótulos de campos */
+  label {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para inputs de tipo datetime-local e text */
+  input[type="datetime-local"],
+  input[type="text"] {
+    width: 100%;
     padding: 5px;
-    font-size: 1rem;
+    border: 1px solid #ccc;
+  }
+  
+  /* Estilos para o botão "Pesquisar" */
+  button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
     cursor: pointer;
-
-}
+    align-self: flex-end; /* Alinha o botão à direita */
+  }
+  
+  /* Estilos para o card */
+  .card {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para cada linha do card */
+  .linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para cada coluna do card */
+  .coluna {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  /* Estilos para texto em negrito */
+  strong {
+    font-weight: bold;
+  }
+  
+  /* Estilos para texto em bloco */
+  span {
+    display: block;
+  }
