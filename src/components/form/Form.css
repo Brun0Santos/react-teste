@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.app {
+    display: flex;
+    text-align: center;
+}
+
+input {
+    width: 200px;
+    height: 40px;
+}
+
+.coluna {
+    padding: 70px 3% 20px;
+    
+}
+
+.flex {
+    flex-direction: column;
+}
+
+
+button{
+    padding: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
