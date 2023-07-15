@@ -1,13 +1,15 @@
+import './Tabela.css'
 // eslint-disable-next-line react/prop-types
 function Tabelas({ dados, valencia, tipo, nomeOperadorTransacao }) {
   return (
-    <div>
-      <table border="1">
+    <div className='app'>
+      <table>
+        <thead>
         <tr>
-          <th>dados</th>
-          <th>valencia</th>
-          <th>tipo</th>
-          <th>nome do operador transacionado</th>
+          <th>Dados</th>
+          <th>Valencia</th>
+          <th>Tipo</th>
+          <th>Nome do operador transacionado</th>
         </tr>
         <tr>
           <th>{dados}</th>
@@ -15,6 +17,7 @@ function Tabelas({ dados, valencia, tipo, nomeOperadorTransacao }) {
           <th>{tipo}</th>
           <th>{nomeOperadorTransacao}</th>
         </tr>
+        </thead>
       </table>
     </div>
   )

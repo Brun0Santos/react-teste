@@ -34,7 +34,8 @@
   }
   
   /* Estilos para inputs de tipo datetime-local e text */
-  input[type="datetime-local"],
+  /* input[type="datetime-local"], */
+  input[type="date"],
   input[type="text"] {
     width: 100%;
     padding: 5px;
@@ -82,4 +83,21 @@
   /* Estilos para texto em bloco */
   span {
     display: block;
+  }
+
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+  
+  input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+  }
+
+  input[type="date"] {
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+    
   }
