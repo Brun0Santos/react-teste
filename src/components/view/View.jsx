@@ -23,7 +23,6 @@ function View () {
                 <span>Nome do Operador</span>
             </div>
         </div>
-        {/* Bruno Adicione aqui as linhas que precisar */}
     </div>
         
         )
