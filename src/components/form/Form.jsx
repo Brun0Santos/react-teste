@@ -23,8 +23,6 @@ function Form() {
   const [dados, setDados] = useState(false)
   const [error, setError] = useState(null);
 
-
-  //const fetchData = async () => {
   function fetchData() {
     getRotas(dataInicio, dataFim, nomeOperador).then((e) => {
       setDados(e)
