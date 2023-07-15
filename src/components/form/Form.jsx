@@ -2,8 +2,10 @@ import './Form.css'
 import { useState } from 'react'
 import Tabelas from '../tabelas/Tabelas'
 import Button from '../button/Button'
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import getRotas from '../../services/testes'
+
 
 function Form() {
   function getDados(e) {
@@ -22,36 +24,11 @@ function Form() {
   const [error, setError] = useState(null);
 
 
-  const fetchData = async () => {
-    console.log(dataInicio.length)
-    console.log(dataFim.length)
-    console.log(nomeOperador)
-
-    console.log(dataInicio)
-    console.log(dataFim)
-    try {
-
-      if (dataInicio.length == 0 && dataFim == 0 && nomeOperador.length == 0){
-        toast.info("Preencha os campos")
-        return
-      } else if (dataInicio.length == 0 && dataFim == 0) {
-        toast.success("Usuário não encontrado")
-      }
-      //fetch(`http://localhost:8080/api/v1/transferencia/operador/${nomeOperador}`, {
-      fetch(`http://localhost:8080/api/v1/transferencia/data/${dataInicio} 00:00:00/${dataFim} 00:00:00`)
-        .then(reponse => {
-          if (reponse.status !== 200) {
-            toast.error("Usuário não encontrado")
-            throw new Error(`HTTP error! Status: ${reponse.status}`);
-          }
-          return reponse.json();
-        })
-        .then((data) => {
-          setDados(data)
-        })
-    } catch (error) {
-      setError(error)
-    }
+  //const fetchData = async () => {
+  function fetchData() {
+    getRotas(dataInicio, dataFim, nomeOperador).then((e) => {
+      setDados(e)
+    })
   }
 
   return (
