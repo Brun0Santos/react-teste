@@ -2,7 +2,7 @@ import './Tabela.css'
 // eslint-disable-next-line react/prop-types
 function Tabelas({ dados, valencia, tipo, nomeOperadorTransacao }) {
   return (
-    <div className='app'>
+    <div >
       <table>
         <thead>
         <tr>
@@ -13,7 +13,7 @@ function Tabelas({ dados, valencia, tipo, nomeOperadorTransacao }) {
         </tr>
         <tr>
           <th>{dados}</th>
-          <th>R${valencia}</th>
+          <th>R$ {valencia}</th>
           <th>{tipo}</th>
           <th>{nomeOperadorTransacao}</th>
         </tr>

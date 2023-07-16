@@ -2,9 +2,8 @@ import './Form.css'
 import { useState } from 'react'
 import Tabelas from '../tabelas/Tabelas'
 import Button from '../button/Button'
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import getRotas from '../../services/testes'
+import getRotas from '../../services/api'
 
 
 function Form() {
@@ -21,12 +20,12 @@ function Form() {
   const [dataInicio, setDataInicio] = useState([])
   const [dataFim, setDataFim] = useState([])
   const [dados, setDados] = useState(false)
-  const [error, setError] = useState(null);
 
-  function fetchData() {
-    getRotas(dataInicio, dataFim, nomeOperador).then((e) => {
-      setDados(e)
-    })
+  function fetchData () {
+   getRotas(dataInicio, dataFim, nomeOperador).then((e) => {
+    setDados(e)
+  })
+
   }
 
   return (
@@ -56,15 +55,15 @@ function Form() {
         <div>{dados?.map((e) =>
           <Tabelas
             key={e.id}
-            dados={e.dataTransferencia}
-            valencia={e.valor}
+            dados={e.dataTransferencia.split("-").reverse().join("-")}
+            valencia={e.valor.toFixed(2)}
             tipo={e.tipo}
-            nomeOperadorTransacao={e.nomeOperadorTransacao}
+            nomeOperadorTransacao={e.conta.nomeResponsavel}
           />
         )}
           <Button
+          evento={desabilitar}
           />
-          <button onClick={desabilitar} type='button'>Desabilitar</button>
         </div>
       )}
     </>

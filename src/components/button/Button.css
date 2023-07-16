@@ -1,0 +1,11 @@
+button {
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-self: flex-end; /* Alinha o botão à direita */
+    margin-left: 70px;
+  }
+  

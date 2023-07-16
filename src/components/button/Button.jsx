@@ -1,11 +1,13 @@
-function Button() {
-  function limparTela(){
-    console.log("Fui clicado")
+import './Button.css'
+
+function Button({ evento }) {
+  const limparTela = () => {
+    evento()
   }
 
   return (
     <>
-      <button type="button" onClick={limparTela}>Limpar Tela</button>
+      <button type="button" onClick={limparTela}>Limpar dados</button>
     </>
   )
 }
