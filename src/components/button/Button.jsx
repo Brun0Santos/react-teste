@@ -1,7 +1,8 @@
 import './Button.css'
 
+// eslint-disable-next-line react/prop-types
 function Button({ evento }) {
-  const limparTela = () => {
+  const limparTela = ()  => {
     evento()
   }
 

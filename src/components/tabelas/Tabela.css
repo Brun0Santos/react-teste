@@ -9,7 +9,7 @@ width: 80%;
 }
 
 tr:hover {
-    background-color: rgb(223, 220, 220);
+    background-color: hsl(0, 2%, 98%);
 }
 
 table{

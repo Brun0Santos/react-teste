@@ -21,11 +21,10 @@ function Form() {
   const [dataFim, setDataFim] = useState([])
   const [dados, setDados] = useState(false)
 
-  function fetchData () {
-   getRotas(dataInicio, dataFim, nomeOperador).then((e) => {
-    setDados(e)
-  })
-
+  function fetchData() {
+    getRotas(dataInicio, dataFim, nomeOperador).then((e) => {
+      setDados(e)
+    })
   }
 
   return (
@@ -57,12 +56,12 @@ function Form() {
             key={e.id}
             dados={e.dataTransferencia.split("-").reverse().join("-")}
             valencia={e.valor.toFixed(2)}
-            tipo={e.tipo}
+            tipo={e.tipo.charAt(0).toUpperCase() + e.tipo.slice(1).toLowerCase()}
             nomeOperadorTransacao={e.conta.nomeResponsavel}
           />
         )}
           <Button
-          evento={desabilitar}
+            evento={desabilitar}
           />
         </div>
       )}
