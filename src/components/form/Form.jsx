@@ -4,10 +4,13 @@ import Tabelas from '../tabelas/Tabelas'
 import Button from '../button/Button'
 import 'react-toastify/dist/ReactToastify.css';
 import getRotas from '../../services/api'
-
+import MostrarValor from '../layout/MostrarValor';
+import { toast } from 'react-toastify';
 
 function Form() {
-  function getDados(e) {
+  let valorSaldoTotal = 0
+
+  function sendDados(e) {
     e.preventDefault()
     fetchData()
   }
@@ -22,8 +25,11 @@ function Form() {
   const [dados, setDados] = useState(false)
 
   function fetchData() {
-    getRotas(dataInicio, dataFim, nomeOperador).then((e) => {
-      setDados(e)
+    getRotas(dataInicio, dataFim, nomeOperador).then((response) => {
+      setDados(response)
+    }).catch(() => {
+      toast.info("Preencha os dados corretamente")
+      console.error("Http Error")
     })
   }
 
@@ -46,9 +52,25 @@ function Form() {
         </div>
 
         <div>
-          <button onClick={getDados} type="submit">Pesquisar</button>
+          <button onClick={sendDados} type="submit">Pesquisar</button>
         </div>
       </form>
+
+      {dados && (
+        <>
+          {dados.map((e) => {
+            valorSaldoTotal += Number(e.valor.toFixed(2))
+          })}
+        </>
+      )}
+
+
+      {dados && (
+        <MostrarValor
+          saldoTotal={valorSaldoTotal}
+          saldoNoPeriodo={valorSaldoTotal}
+        />
+      )}
 
       {dados && (
         <div>{dados?.map((e) =>
@@ -60,9 +82,7 @@ function Form() {
             nomeOperadorTransacao={e.conta.nomeResponsavel}
           />
         )}
-          <Button
-            evento={desabilitar}
-          />
+          <Button evento={desabilitar} />
         </div>
       )}
     </>

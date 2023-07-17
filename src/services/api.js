@@ -4,14 +4,13 @@ const baseURL = "http://localhost:8080/api/v1/transferencia"
 
 async function getRotas(dataInicio, dataFim, nomeOperador) {
 
-  if (dataInicio.length == 0 && dataFim == 0 && nomeOperador.length == 0) {
-    toast.info("Preencha os dados")
+  if (dataInicio.length == 0 && dataFim.length == 0 && nomeOperador.length == 0) {
     return
 
   } else if (nomeOperador.length == 0) {
     return await request(`${baseURL}/data/${dataInicio}/${dataFim}`)
 
-  } else if (dataInicio.length == 0 && dataFim == 0) {
+  } else if (dataInicio.length == 0 && dataFim.length == 0) {
     return await request(`${baseURL}/operador/${nomeOperador}`)
 
   } else {
